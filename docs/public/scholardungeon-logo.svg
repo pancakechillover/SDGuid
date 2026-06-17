@@ -9,8 +9,6 @@
       .fg-inverted { fill: black; }
     }
   </style>
-
-  <rect width="200" height="200" rx="0" class="bg" />
   
   <g id="Centered-Icon-Group" transform="translate(0, -1) scale(1.2)">
     <path d="M 5 146.25 C 20 146.25 40 145.5 52 144 C 58 143.2 64 143.2 64 146.25 C 64 149.3 58 149.3 52 148.5 C 40 147 20 146.25 5 146.25 Z" class="fg"/>

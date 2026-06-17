@@ -2,8 +2,17 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: "Scholar's Dungeon",
-  description: "Scholar's Dungeon 官方中文指南",
-  lang: 'zh-CN',
+  description: "Scholar's Dungeon 官方指南",
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN',
+    },
+    en: {
+      label: 'English',
+      lang: 'en',
+    }
+  },
   cleanUrls: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
@@ -12,6 +21,9 @@ export default defineConfig({
   themeConfig: {
     logo: '/scholardungeon-logo.svg',
     siteTitle: "Scholar's Dungeon",
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/pancakechillover/ScholarDungeon' }
+    ],
     nav: [
       { text: '首页', link: '/' },
       { text: '新手教程', link: '/guide/getting-started' },
@@ -79,8 +91,8 @@ export default defineConfig({
       label: '页面导航'
     },
     footer: {
-      message: 'Built for every brave scholar entering the dungeon.',
-      copyright: "Scholar's Dungeon"
+      message: 'Scholar\'s Dungeon：https://scholars-dungeon.karakan.top/',
+      copyright: ''
     },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
@@ -90,7 +102,9 @@ export default defineConfig({
     server: {
       allowedHosts: true,
       host: '0.0.0.0',
-      port: 3000
+      port: 3000,
+      hmr: process.env.DISABLE_HMR !== 'true' ? undefined : false,
+      watch: process.env.DISABLE_HMR === 'true' ? null : {}
     }
   }
 })
