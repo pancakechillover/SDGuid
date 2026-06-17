@@ -311,9 +311,18 @@ html.dark .VPFeature .icon .VPImage {
 }
 
 @media (max-width: 960px) {
+  .VPHero .image-container {
+    width: 280px;
+    height: 280px;
+    transform: translateX(0);
+  }
+  .VPHero .image-bg {
+    width: 280px !important;
+    height: 280px !important;
+  }
   .VPHero .image-src {
-    width: 220px;
-    height: 220px;
+    width: 260px !important;
+    height: 260px !important;
     padding: 0;
     border-radius: 0;
     background: transparent !important;
@@ -323,11 +332,11 @@ html.dark .VPFeature .icon .VPImage {
 
 @media (max-width: 768px) {
   .VPHero .name {
-    font-size: 42px;
+    font-size: 36px;
   }
 
   .VPHero .text {
-    font-size: 34px;
+    font-size: 28px;
   }
 
   .VPHero .tagline {
@@ -340,5 +349,89 @@ html.dark .VPFeature .icon .VPImage {
 
   .VPHero .image-container {
     transform: none;
+    width: 240px;
+    height: 240px;
+  }
+  
+  .VPHero .image-bg {
+    width: 240px !important;
+    height: 240px !important;
+  }
+
+  .VPHero .image-src {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .VPFeatures {
+    padding: 32px 16px !important;
+  }
+  
+  .VPFeature {
+    padding: 24px 20px !important;
   }
 }
+
+/* Reduce bottom padding of home & doc content layouts to minimize distance to bottom */
+.VPDoc {
+  padding-bottom: 32px !important;
+}
+
+@media (min-width: 768px) {
+  .VPDoc {
+    padding-bottom: 48px !important;
+  }
+}
+
+/* Tighter padding and margins for the doc footer of Vitepress */
+.VPDocFooter {
+  margin-top: 32px !important;
+  padding-bottom: 0 !important;
+}
+
+/* Homepage native footer styling adjustment */
+.VPFooter {
+  padding: 24px 24px !important;
+  background-color: var(--vp-c-bg) !important;
+  border-top: 1px solid var(--sd-border) !important;
+}
+
+/* Custom footer for doc pages */
+.custom-doc-footer-container {
+  margin-top: 36px;
+  border-top: 1px solid var(--sd-border);
+  padding: 24px 0 16px 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+}
+
+.custom-doc-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.custom-doc-footer-inner span {
+  font-family: var(--vp-font-family-base);
+  opacity: 0.85;
+}
+
+.custom-doc-footer-inner a {
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+  text-underline-offset: 4px;
+  transition: opacity 0.22s, text-decoration 0.22s;
+}
+
+.custom-doc-footer-inner a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Ensure content container doesn't stretch layout bottom excessively */
+#VPContent {
+  padding-bottom: 0 !important;
+}
+
