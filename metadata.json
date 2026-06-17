@@ -1,0 +1,6 @@
+{
+  "name": "ScholarDungeon Guide",
+  "description": "A VitePress documentation site for ScholarDungeon Guide",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
