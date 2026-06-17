@@ -1,6 +1,6 @@
 {
-  "name": "ScholarDungeon Guide",
-  "description": "A VitePress documentation site for ScholarDungeon Guide",
+  "name": "Scholar's Dungeon",
+  "description": "A VitePress documentation site for Scholar's Dungeon",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

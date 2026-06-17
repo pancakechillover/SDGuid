@@ -1,20 +1,54 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Scholar's Dungeon
 
-# Run and deploy your AI Studio app
+这是 Scholar's Dungeon 的中文指南站，使用 VitePress 构建。
 
-This contains everything you need to run your app locally.
+## 本地预览
 
-View your app in AI Studio: https://ai.studio/apps/3945bc07-88bb-401f-a194-d9eb223386cf
+第一次使用需要安装依赖：
 
-## Run Locally
+```bash
+pnpm install
+```
 
-**Prerequisites:**  Node.js
+之后每次预览只需要：
 
+```bash
+pnpm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Windows 用户也可以直接双击：
+
+```text
+start-dev.bat
+```
+
+## 修改内容
+
+- 首页内容：`docs/index.md`
+- 普通教程页面：`docs/guide/*.md`
+- 功能说明页面：`docs/features/*.md`
+- 常见问题：`docs/faq/index.md`
+- 更新日志：`docs/changelog.md`
+- 顶部导航与侧边栏：`docs/.vitepress/config.ts`
+- 首页视觉样式：`docs/.vitepress/theme/style.css`
+- Logo、图片与 Lucide 图标资源：`docs/public/`
+
+更详细的编辑方法见：
+
+```text
+EDITOR_GUIDE.md
+```
+
+## Vercel 部署
+
+构建命令：
+
+```bash
+pnpm run docs:build
+```
+
+输出目录：
+
+```text
+docs/.vitepress/dist
+```

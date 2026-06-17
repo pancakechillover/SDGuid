@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --vp-font-family-base: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif !important;
+  --vp-font-family-mono: "JetBrains Mono", ui-monospace, sans-serif !important;
+  --vp-c-brand-1: #4F39F6;
+  --vp-c-brand-2: #3f27ed;
+  --vp-c-brand-3: #6e5df7;
+  --vp-button-brand-bg: #4F39F6;
+  --vp-button-brand-hover-bg: #3f27ed;
+  --vp-home-hero-name-color: #4F39F6;
+  --vp-home-hero-name-background: none;
+  --sd-accent: #4F39F6;
+  --sd-accent-soft: rgba(79, 57, 246, 0.08);
+  --sd-accent-softer: rgba(79, 57, 246, 0.04);
+  --sd-border: rgba(79, 57, 246, 0.12);
+  --sd-card-bg: rgba(255, 255, 255, 0.85);
+  --sd-card-shadow: 0 20px 45px rgba(79, 57, 246, 0.07);
+  --sd-icon-filter: none;
+}
+
+.dark {
+  --vp-c-bg: #070912;
+  --vp-c-bg-soft: #0e1020;
+  --vp-c-bg-alt: #0a0b16;
+  --vp-c-brand-1: #8273ff;
+  --vp-c-brand-2: #6554fd;
+  --vp-c-brand-3: #4F39F6;
+  --vp-home-hero-name-color: #a399ff;
+  --sd-accent: #8273ff;
+  --sd-accent-soft: rgba(130, 115, 255, 0.14);
+  --sd-accent-softer: rgba(130, 115, 255, 0.06);
+  --sd-border: rgba(130, 115, 255, 0.15);
+  --sd-card-bg: rgba(14, 16, 32, 0.78);
+  --sd-card-shadow: 0 20px 50px rgba(0, 0, 0, 0.42);
+  --sd-icon-filter: invert(1) brightness(1.22);
+}
+
+.VPHero .name,
+.VPHero .text,
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4,
+.VPFeature .title,
+.sd-panel h2,
+.sd-roadmap-title {
+  font-family: "Outfit", var(--vp-font-family-base) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.035em !important;
+}
+
+.VPNavBarTitle .logo {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--sd-border);
+}
+
+.VPHome {
+  position: relative;
+  overflow: hidden;
+}
+
+.VPHome::before {
+  content: '';
+  position: absolute;
+  inset: -120px 0 auto 0;
+  height: 580px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 15%, var(--sd-accent-soft), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(79, 57, 246, 0.05), transparent 40%),
+    linear-gradient(180deg, var(--sd-accent-softer), transparent 85%);
+  z-index: 0;
+}
+
+.VPHome > * {
+  position: relative;
+  z-index: 1;
+}
+
+.VPHero {
+  padding-bottom: 56px !important;
+  padding-top: 48px !important;
+}
+
+.VPHero .container {
+  align-items: center;
+}
+
+.VPHero .main {
+  max-width: 660px;
+}
+
+.VPHero .name {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 800 !important;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), #9b51e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.VPHero .text {
+  max-width: 640px;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  color: var(--vp-c-text-1);
+  font-weight: 800 !important;
+  margin-top: 4px;
+}
+
+.VPHero .tagline {
+  max-width: 680px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--vp-c-text-2);
+  margin-top: 16px;
+}
+
+.VPHero .actions {
+  margin-top: 28px;
+}
+
+.VPHero .image {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Float Animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Move the hero logo into the visual center of the right-side hero area. */
+.VPHero .image-container {
+  transform: translateY(-120px);
+}
+
+.VPHero .image-bg {
+  width: 280px !important;
+  height: 280px !important;
+  background: radial-gradient(circle, var(--sd-accent-soft), transparent 68%);
+  filter: blur(24px);
+}
+
+.VPHero .image-src {
+  width: 230px;
+  height: 230px;
+  padding: 34px;
+  border-radius: 38px;
+  background: var(--vp-c-bg);
+  box-shadow: 0 20px 50px rgba(79, 57, 246, 0.16), var(--sd-card-shadow), 0 0 0 1px var(--sd-border) inset;
+  transform: none;
+  object-fit: contain;
+  animation: float 6s ease-in-out infinite;
+}
+
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 12px 28px rgba(79, 57, 246, 0.25);
+  font-weight: 600;
+  border-radius: 99px !important;
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.22s ease !important;
+}
+
+.VPButton.brand:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(79, 57, 246, 0.4);
+}
+
+.VPButton.alt {
+  border-radius: 99px !important;
+  font-weight: 600;
+  transition: transform 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.22s, background-color 0.22s !important;
+}
+
+.VPButton.alt:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--vp-c-brand-1) !important;
+  background-color: var(--sd-accent-soft) !important;
+}
+
+.VPFeatures {
+  padding: 56px 24px !important;
+}
+
+.VPFeature {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--sd-border) !important;
+  border-radius: 24px !important;
+  background: var(--sd-card-bg) !important;
+  backdrop-filter: blur(20px);
+  padding: 36px 30px !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.4s, background-color 0.3s !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-8px) scale(1.015);
+  border-color: var(--vp-c-brand-1) !important;
+  background: var(--vp-c-bg) !important;
+  box-shadow: 0 30px 65px rgba(79, 57, 246, 0.16), var(--sd-card-shadow) !important;
+}
+
+.VPFeature .icon,
+.sd-panel-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--sd-accent-soft);
+  transition: transform 0.3s ease;
+}
+
+.VPFeature:hover .icon {
+  transform: scale(1.1) rotate(4deg);
+}
+
+/* Custom Feature icon style */
+.VPFeature img.VPImage {
+  width: 48px;
+  height: 48px;
+  padding: 11px;
+  border-radius: 16px;
+  background: var(--sd-accent-soft);
+  filter: brightness(0) saturate(100%);
+  opacity: 0.95;
+  transition: filter 0.2s ease, background-color 0.2s ease, transform 0.3s ease;
+}
+
+.VPFeature:hover img.VPImage {
+  background-color: var(--vp-c-brand-1);
+}
+
+html.dark .VPFeature img.VPImage {
+  filter: brightness(0) invert(1);
+}
+
+.VPFeature:hover img.VPImage {
+  filter: brightness(0) invert(1) !important;
+}
+
+.VPFeature .title {
+  font-size: 20px !important;
+  margin-top: 12px;
+}
+
+/* Custom interactive sections for Roadmap below features */
+.sd-roadmap-section {
+  max-width: 1152px;
+  margin: 64px auto 96px;
+  padding: 0 24px;
+}
+
+.sd-roadmap-title {
+  text-align: center;
+  font-size: 32px !important;
+  margin-bottom: 12px;
+  color: var(--vp-c-text-1);
+}
+
+.sd-roadmap-subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: var(--vp-c-text-2);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.sd-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sd-roadmap-card {
+  position: relative;
+  background: var(--sd-card-bg);
+  border: 1px solid var(--sd-border);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--sd-card-shadow);
+  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.sd-roadmap-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 20px 45px rgba(79, 57, 246, 0.12);
+}
+
+.sd-roadmap-num {
+  font-family: "Outfit", sans-serif;
+  font-size: 38px;
+  font-weight: 850;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), #ff5e62);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+  margin-bottom: 12px;
+}
+
+.sd-roadmap-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--vp-c-text-1);
+}
+
+.sd-roadmap-card p {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 网页侧边栏的滚动滑条默认隐藏 */
+.VPSidebar .container {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.VPSidebar .container::-webkit-scrollbar {
+  display: none !important;
+  width: 4px !important;
+}
+
+/* 鼠标悬停时优雅地显示细滚动条 */
+.VPSidebar .container:hover {
+  scrollbar-width: thin !important;
+}
+
+.VPSidebar .container:hover::-webkit-scrollbar {
+  display: block !important;
+}
+
+.VPSidebar .container::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-brand-3) !important;
+  border-radius: 4px !important;
+}
+
+/* 确保侧边栏滑条不包括“Scholar's Dungeon”（顶部导航栏那一栏）部分 */
+@media (min-width: 960px) {
+  .VPSidebar {
+    top: var(--vp-nav-height) !important;
+    height: calc(100vh - var(--vp-nav-height)) !important;
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .VPHero .image-src {
+    width: 190px;
+    height: 190px;
+    padding: 28px;
+    border-radius: 28px;
+  }
+
+  .sd-roadmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .VPHero .name {
+    font-size: 42px;
+  }
+
+  .VPHero .text {
+    font-size: 34px;
+  }
+
+  .VPHero .tagline {
+    font-size: 16px;
+  }
+
+  .VPHero .image {
+    margin-top: 26px;
+  }
+
+  .VPHero .image-container {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sd-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}

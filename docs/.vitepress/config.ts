@@ -1,14 +1,21 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: "ScholarDungeon",
-  description: "ScholarDungeon 官方中文指南",
+  title: "Scholar's Dungeon",
+  description: "Scholar's Dungeon 官方中文指南",
   lang: 'zh-CN',
+  cleanUrls: true,
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['meta', { name: 'theme-color', content: '#7c3aed' }]
+  ],
   themeConfig: {
+    logo: '/scholardungeon-logo.svg',
+    siteTitle: "Scholar's Dungeon",
     nav: [
       { text: '首页', link: '/' },
       { text: '新手教程', link: '/guide/getting-started' },
-      { text: '功能说明', link: '/features/dungeon' },
+      { text: '高级教程', link: '/features/dungeon' },
       { text: '常见问题', link: '/faq/' },
       { text: '更新日志', link: '/changelog' }
     ],
@@ -19,11 +26,12 @@ export default defineConfig({
           items: [
             { text: '开始之前', link: '/guide/getting-started' },
             { text: '第一次专注', link: '/guide/first-focus' },
-            { text: '账号与登录', link: '/guide/account' }
+            { text: '账号与登录', link: '/guide/account' },
+            { text: '安装为应用', link: '/guide/install-app' }
           ]
         },
         {
-          text: '功能说明',
+          text: '高级教程',
           items: [
             { text: '地牢系统', link: '/features/dungeon' },
             { text: '专注计时', link: '/features/focus' },
@@ -70,6 +78,10 @@ export default defineConfig({
     outline: {
       label: '页面导航'
     },
+    footer: {
+      message: 'Built for every brave scholar entering the dungeon.',
+      copyright: "Scholar's Dungeon"
+    },
     returnToTopLabel: '回到顶部',
     sidebarMenuLabel: '菜单',
     darkModeSwitchLabel: '主题'
@@ -78,9 +90,7 @@ export default defineConfig({
     server: {
       allowedHosts: true,
       host: '0.0.0.0',
-      port: 3000,
-      hmr: process.env.DISABLE_HMR !== 'true',
-      watch: process.env.DISABLE_HMR === 'true' ? null : {}
+      port: 3000
     }
   }
 })
